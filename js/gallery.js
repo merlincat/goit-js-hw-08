@@ -109,9 +109,7 @@ galleryContainer.addEventListener('click', event => {
   const altName = event.target.alt;
   // console.log(fullImgLink);
   const modalContent = `
-    <div class="modal">
       <img src="${fullImgLink}" alt="${altName}">
-    </div>
   `;
   function modalCLose(event) {
     if (event.code === 'Escape') {
