@@ -76,7 +76,7 @@ const images = [
 
 const galleryContainer = document.querySelector('.gallery');
 
-galleryContainer.innerHTML = images.reduce(
+const mockupGallery = images.reduce(
   (html, image) =>
     html +
     `
@@ -93,6 +93,9 @@ galleryContainer.innerHTML = images.reduce(
   `,
   ''
 );
+galleryContainer.innerHTML = mockupGallery;
+
+// Наступна логіка потрібна, щоб зупинити дефолтну роботу при натисканні на картинку, адже вона огорнута в посилання і при натисканні за замовчуванням відбувається завантаження файлу ----->
 const imageLinks = galleryContainer.querySelectorAll('.gallery-link');
 
 imageLinks.forEach(imageLink => {
@@ -100,6 +103,7 @@ imageLinks.forEach(imageLink => {
     event.preventDefault();
   });
 });
+// <---
 
 galleryContainer.addEventListener('click', event => {
   if (event.target.nodeName !== 'IMG') {
@@ -113,6 +117,7 @@ galleryContainer.addEventListener('click', event => {
   `;
   function modalCLose(event) {
     if (event.code === 'Escape') {
+      // ця логіка наче потрібюна, адже сама галерея не обробляє слухачі на клавіатуру, тут здійснено закриття на ескейп та видалення слухача, можливо, треба зробити по-іншому, але це прописано в завданні
       instance.close();
       document.removeEventListener('keydown', modalCLose);
     }
