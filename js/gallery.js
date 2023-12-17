@@ -96,16 +96,18 @@ const mockupGallery = images.reduce(
 galleryContainer.innerHTML = mockupGallery;
 
 // Наступна логіка потрібна, щоб зупинити дефолтну роботу при натисканні на картинку, адже вона огорнута в посилання і при натисканні за замовчуванням відбувається завантаження файлу ----->
-const imageLinks = galleryContainer.querySelectorAll('.gallery-link');
+// const imageLinks = galleryContainer.querySelectorAll('.gallery-link');
 
-imageLinks.forEach(imageLink => {
-  imageLink.addEventListener('click', event => {
-    event.preventDefault();
-  });
-});
+// imageLinks.forEach(imageLink => {
+//   imageLink.addEventListener('click', event => {
+//     event.preventDefault();
+//   });
+// });
 // <---
 
 galleryContainer.addEventListener('click', event => {
+  // додала сюди зміну поведінки по замовчуванню.
+  event.preventDefault();
   if (event.target.nodeName !== 'IMG') {
     return;
   }
