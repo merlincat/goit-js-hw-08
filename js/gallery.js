@@ -121,7 +121,6 @@ galleryContainer.addEventListener('click', event => {
     if (event.code === 'Escape') {
       // ця логіка наче потрібюна, адже сама галерея не обробляє слухачі на клавіатуру, тут здійснено закриття на ескейп та видалення слухача, можливо, треба зробити по-іншому, але це прописано в завданні
       instance.close();
-      document.removeEventListener('keydown', modalCLose);
     }
   }
   const instance = basicLightbox.create(modalContent, {
